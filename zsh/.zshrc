@@ -59,7 +59,6 @@ BULLETTRAIN_PROMPT_ORDER=(
   git
 )
 
-
 # New content
 # ZSH completion
 autoload -Uz compinit
@@ -68,6 +67,9 @@ neofetch
 
 # Add /usr/local/bin to PATH
 export PATH="/usr/local/bin:$PATH"
+
+# Ruby Gems
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.3.0/bin"
 
 # NVM setup
 export NVM_DIR="$HOME/.nvm"
@@ -82,3 +84,10 @@ export PATH=$BUN_INSTALL/bin:$PATH
 export PATH="$PATH:/opt/nvim-linux64/bin"
 # bun completions
 [ -s "/home/mikekey/.bun/_bun" ] && source "/home/mikekey/.bun/_bun"
+
+# Linux Crud
+export PATH=$PATH:/opt/rocm/bin
+export ROCM_PATH=/opt/rocm
+export HIP_PLATFORM=amd
+export HIP_PLATFORM=amd
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib

@@ -60,13 +60,18 @@ alias dotfiles="cd ~/Dotfiles"
 alias games="cd ~/Games"
 
 # Open VS Code in the current directory or workspace
-function smartvsc() {
+function code() {
+    # Locate any .code-workspace file in the current directory
     local workspace_file=$(find . -maxdepth 1 -name '*.code-workspace' | head -n 1)
+
+    # Check if a workspace file was found
     if [[ -n "$workspace_file" ]]; then
-        echo "Opening workspace: $workspace_file"
+        echo "Workspace found: $workspace_file"
+        # Launch VS Code OSS with the workspace
         code "$workspace_file"
     else
-        echo "No workspace file found. Opening current directory."
+        echo "No workspace file found. Opening the current directory."
+        # Open the current directory in VS Code OSS
         code .
     fi
 }
@@ -84,7 +89,8 @@ alias plexStatus="sudo systemctl status plexmediaserver.service"
 
 #Workflow Stuff
 
-
 #Arch Shortcuts
 alias pm="sudo pacman -S"
 alias pmr="sudo pacman -Rs"
+
+#Ollama Stuff
