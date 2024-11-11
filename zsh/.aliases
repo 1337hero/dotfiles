@@ -67,12 +67,11 @@ function code() {
     # Check if a workspace file was found
     if [[ -n "$workspace_file" ]]; then
         echo "Workspace found: $workspace_file"
-        # Launch VS Code OSS with the workspace
-        code "$workspace_file"
+        command code "$workspace_file"
     else
         echo "No workspace file found. Opening the current directory."
         # Open the current directory in VS Code OSS
-        code .
+        command code .
     fi
 }
 
