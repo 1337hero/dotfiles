@@ -8,8 +8,8 @@ source ~/Dotfiles/zsh/.zsh-git
 source ~/Dotfiles/zsh/.zsh-theme
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000
+SAVEHIST=1000
 
 # Changing/making/removing directory
 setopt auto_cd
@@ -82,6 +82,7 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # Neovim setup
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
 # bun completions
 [ -s "/home/mikekey/.bun/_bun" ] && source "/home/mikekey/.bun/_bun"
 
@@ -91,3 +92,4 @@ export ROCM_PATH=/opt/rocm
 export HIP_PLATFORM=amd
 export HIP_PLATFORM=amd
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib
+

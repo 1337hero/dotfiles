@@ -22,7 +22,6 @@ alias vim="nvim" #set default VIM to Neovim
 
 # List directory contents
 alias ll='ls -lh'
-alias ls="eza --icons=always --git-ignore --ignore-glob='node_modules'"
 alias la='ls -lAh'
 alias lla="ls -la"
 alias lt="ls -lTa"
@@ -54,8 +53,11 @@ alias stx="tmux source ~/.tmux.conf"
 # Custom Directory Aliases
 alias dw="cd ~/Downloads"
 alias projects="cd ~/Projects"
-alias srwp="cd ~/Projects/SRWP"
-alias ciss="cd ~/Projects/CISS"
+alias srwp="cd ~/Projects/SURF/SRWP"
+alias ciss="cd ~/Projects/SURF/CISS"
+alias cep="cd ~/Projects/SURF/CEP"
+alias sites="cd ~/Sites"
+alias invstorly="cd ~/Sites/invstorly.com"
 alias dotfiles="cd ~/Dotfiles"
 alias games="cd ~/Games"
 
