@@ -1,5 +1,11 @@
 ##
+.claude
+CLAUDE.md
 .DS_Store
 ._*
 .Spotlight-V100
 .Trashes
+
+!.*
+!.config/
+!.config/**/*
