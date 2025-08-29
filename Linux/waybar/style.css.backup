@@ -1,0 +1,36 @@
+* {
+  font-family: "Inter", "Font Awesome 6 Free";
+  font-size: 12px;
+}
+
+window#waybar {
+  background-color: rgba(54, 58, 79, 0.5);
+  color: #ffffff;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  background-color: rgb(166, 218, 149);
+}
+
+#workspaces button:hover {
+  background: inherit;
+  border-bottom: 2px solid #a6da95;
+}
+
+#clock,
+#memory,
+#pulseaudio,
+#custom-logout {
+  margin: 0 5px;
+}
+
+#custom-logout {
+  color: #ed8796;
+  font-size: 16px;
+}

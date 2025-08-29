@@ -1,0 +1,22 @@
+window {
+  background-color: #3b4252;
+  color: #eceff4;
+}
+
+#input {
+  background-color: #4c566a;
+  color: #eceff4;
+  border: none;
+}
+
+#inner-box {
+  background-color: #3b4252;
+}
+
+#outer-box {
+  background-color: #3b4252;
+}
+
+#entry:selected {
+  background-color: #5e81ac;
+}

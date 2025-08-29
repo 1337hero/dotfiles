@@ -94,4 +94,7 @@ alias plexStatus="sudo systemctl status plexmediaserver.service"
 alias pm="sudo pacman -S"
 alias pmr="sudo pacman -Rs"
 
+#Hyprland
+alias hr="hyprctl reload"
+
 #Ollama Stuff

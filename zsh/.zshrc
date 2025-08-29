@@ -69,7 +69,7 @@ neofetch
 export PATH="/usr/local/bin:$PATH"
 
 # Ruby Gems
-export PATH="$PATH:$HOME/.local/share/gem/ruby/3.3.0/bin"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
 
 # NVM setup
 export NVM_DIR="$HOME/.nvm"
@@ -93,3 +93,5 @@ export HIP_PLATFORM=amd
 export HIP_PLATFORM=amd
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib
 
+
+. "$HOME/.local/bin/env"

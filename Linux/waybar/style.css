@@ -1,36 +1,237 @@
+/* Waybar Style Configuration */
+/* Based on omarchy setup with Catppuccin Macchiato theme */
+
+/* Color definitions - Catppuccin Macchiato */
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+@define-color text #cad3f5;
+@define-color subtext0 #a5adcb;
+@define-color subtext1 #b8c0e0;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color surface2 #5b6078;
+@define-color overlay0 #6e738d;
+@define-color overlay1 #8087a2;
+@define-color overlay2 #939ab7;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color sapphire #7dc4e4;
+@define-color sky #91d7e3;
+@define-color teal #8bd5ca;
+@define-color green #a6da95;
+@define-color yellow #eed49f;
+@define-color peach #f5a97f;
+@define-color maroon #ee99a0;
+@define-color red #ed8796;
+@define-color mauve #c6a0f6;
+@define-color pink #f5bde6;
+@define-color flamingo #f0c6c6;
+@define-color rosewater #f4dbd6;
+
 * {
-  font-family: "Inter", "Font Awesome 6 Free";
-  font-size: 12px;
+  background-color: transparent;
+  color: @text;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "CaskaydiaMono Nerd Font Propo", "Font Awesome 6 Free", monospace;
+  font-size: 13px;
 }
 
 window#waybar {
-  background-color: rgba(54, 58, 79, 0.5);
-  color: #ffffff;
+  background-color: alpha(@base, 0.9);
+  transition-property: background-color;
+  transition-duration: .5s;
 }
 
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+/* Workspaces */
 #workspaces button {
-  padding: 0 8px;
-  background-color: transparent;
-  color: #ffffff;
-}
-
-#workspaces button.active {
-  background-color: rgb(166, 218, 149);
+  all: initial;
+  padding: 0 6px;
+  margin: 0 2px;
+  color: @subtext0;
+  transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-  background: inherit;
-  border-bottom: 2px solid #a6da95;
+  background: alpha(@surface0, 0.7);
+  color: @text;
+  box-shadow: inherit;
 }
 
-#clock,
+#workspaces button.active {
+  color: @green;
+  background: alpha(@surface0, 0.5);
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @base;
+}
+
+/* Common module styling */
+#tray,
+#cpu,
 #memory,
+#battery,
+#network,
+#bluetooth,
 #pulseaudio,
-#custom-logout {
-  margin: 0 5px;
+#clock,
+#custom-power-menu {
+  min-width: 12px;
+  margin: 0 4px;
+  padding: 0 8px;
+  color: @text;
 }
 
-#custom-logout {
-  color: #ed8796;
-  font-size: 16px;
+/* Clock special styling */
+#clock {
+  color: @blue;
+  font-weight: bold;
+  margin: 0 12px;
+}
+
+/* CPU module */
+#cpu {
+  color: @green;
+}
+
+#cpu.warning {
+  color: @yellow;
+}
+
+#cpu.critical {
+  color: @red;
+}
+
+/* Memory module */
+#memory {
+  color: @mauve;
+}
+
+#memory.warning {
+  color: @yellow;
+}
+
+#memory.critical {
+  color: @red;
+}
+
+/* Network module */
+#network {
+  color: @lavender;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* Bluetooth module */
+#bluetooth {
+  color: @blue;
+}
+
+#bluetooth.connected {
+  color: @green;
+}
+
+#bluetooth.disabled {
+  color: @overlay0;
+}
+
+/* PulseAudio module */
+#pulseaudio {
+  color: @yellow;
+}
+
+#pulseaudio.muted {
+  color: @overlay0;
+}
+
+/* Battery module */
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: @text;
+  }
+}
+
+/* Tray */
+#tray {
+  background-color: alpha(@surface0, 0.3);
+  margin: 4px 0;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Custom expand icon */
+#custom-expand-icon {
+  margin-right: 4px;
+  padding: 0 8px;
+  color: @overlay1;
+}
+
+/* Tooltip styling */
+tooltip {
+  background-color: @base;
+  color: @text;
+  border: 1px solid @surface0;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+/* Group drawer animation */
+.modules-right box widget:first-child {
+  transition: margin-right 0.6s ease;
 }

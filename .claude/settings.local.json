@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(gem env:*)",
+      "Bash(gem install:*)",
+      "Bash(gem list:*)",
+      "Bash(colorls:*)",
+      "Bash(paru:*)",
+      "Bash(systemctl status:*)",
+      "Bash(git clone:*)"
+    ],
+    "deny": []
+  }
+}

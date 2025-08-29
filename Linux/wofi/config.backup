@@ -1,0 +1,8 @@
+width=500
+height=300
+mode=drun
+filter_rate=100
+allow_markup=true
+no_actions=true
+term=foot
+columns=1

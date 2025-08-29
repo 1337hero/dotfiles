@@ -1,22 +1,138 @@
-window {
-  background-color: #3b4252;
-  color: #eceff4;
+/* Wofi Style Configuration */
+/* Based on omarchy setup with Catppuccin Macchiato theme */
+
+/* Color definitions - Catppuccin Macchiato */
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+@define-color text #cad3f5;
+@define-color subtext0 #a5adcb;
+@define-color subtext1 #b8c0e0;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color surface2 #5b6078;
+@define-color overlay0 #6e738d;
+@define-color overlay1 #8087a2;
+@define-color overlay2 #939ab7;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color sapphire #7dc4e4;
+@define-color sky #91d7e3;
+@define-color teal #8bd5ca;
+@define-color green #a6da95;
+@define-color yellow #eed49f;
+@define-color peach #f5a97f;
+@define-color maroon #ee99a0;
+@define-color red #ed8796;
+@define-color mauve #c6a0f6;
+@define-color pink #f5bde6;
+@define-color flamingo #f0c6c6;
+@define-color rosewater #f4dbd6;
+
+/* Selected colors */
+@define-color border @green;
+@define-color selected-text @base;
+
+* {
+  font-family: 'CaskaydiaMono Nerd Font', monospace;
+  font-size: 14px;
 }
 
-#input {
-  background-color: #4c566a;
-  color: #eceff4;
-  border: none;
+window {
+  margin: 0px;
+  padding: 20px;
+  background-color: @base;
+  opacity: 0.95;
+  border: 2px solid @border;
+  border-radius: 8px;
 }
 
 #inner-box {
-  background-color: #3b4252;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: @base;
 }
 
 #outer-box {
-  background-color: #3b4252;
+  margin: 0;
+  padding: 20px;
+  border: none;
+  background-color: @base;
+}
+
+#scroll {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: @base;
+}
+
+#input {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: @surface0;
+  color: @text;
+  font-size: 16px;
+}
+
+#input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 2px solid @green;
+}
+
+#input image {
+  color: @subtext0;
+  margin-right: 10px;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @text;
+}
+
+#text:selected {
+  color: @selected-text;
+}
+
+#entry {
+  background-color: transparent;
+  padding: 5px;
+  margin: 2px 0;
+  border-radius: 8px;
 }
 
 #entry:selected {
-  background-color: #5e81ac;
+  outline: none;
+  border: none;
+  background-color: @green;
+}
+
+#entry:selected #text {
+  color: @base;
+  font-weight: bold;
+}
+
+#entry image {
+  margin-right: 10px;
+  -gtk-icon-transform: scale(0.8);
+}
+
+/* Scrollbar styling */
+scrollbar {
+  width: 4px;
+}
+
+scrollbar handle {
+  background-color: @surface1;
+  border-radius: 4px;
+  min-height: 20px;
+}
+
+scrollbar handle:hover {
+  background-color: @surface2;
 }
