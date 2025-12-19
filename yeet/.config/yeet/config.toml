@@ -19,7 +19,7 @@ terminal = "alacritty"
 width = 500
 
 # Window anchors from screen edge (pixels)
-anchor_top = 200
+anchor_top = 400
 
 [search]
 # Minimum score for fuzzy match (0-100)

@@ -57,10 +57,10 @@ alias srwp="cd ~/Projects/SURF/SRWP"
 alias ciss="cd ~/Projects/SURF/CISS"
 alias cep="cd ~/Projects/SURF/CEP"
 alias sites="cd ~/Sites"
-alias invstorly="cd ~/Sites/invstorly.com"
 alias dotfiles="cd ~/Dotfiles"
 alias games="cd ~/Games"
 alias faster-chat="cd ~/Projects/1_React/faster-chat"
+
 
 # Open VS Code in the current directory or workspace
 function code() {
@@ -80,7 +80,6 @@ function code() {
 
 # Misc Aliases
 alias nf="neofetch"
-alias minecraft="~/Games/minecraft-server/manage_server.sh"
 alias raidCheck="sudo mdadm --detail /dev/md127"
 
 #Plex Aliases
