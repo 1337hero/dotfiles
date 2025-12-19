@@ -78,7 +78,7 @@ window#waybar.hidden {
   margin: 6px 4px 7px;
   border-radius: 15px;
   border: 0px;
-  background-color: bg-alt;
+  background-color: @bg-alt;
   color: @text-normal;
   opacity: 1;
 }
