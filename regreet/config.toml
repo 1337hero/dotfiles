@@ -1,0 +1,61 @@
+[background]
+# No background image - pure black void
+# path = "/usr/share/backgrounds/greeter.jpg"
+fit = "Cover"
+
+# The entries defined in this section will be passed to the session as environment variables when it is started
+[env]
+ENV_VARIABLE = "value"
+
+[GTK]
+# Whether to use the dark theme
+application_prefer_dark_theme = true
+
+# Cursor theme name
+cursor_theme_name = "Adwaita"
+
+# Whether to blink the cursor
+cursor_blink = true
+
+# Font name and size - monospace for that terminal feel
+font_name = "JetBrains Mono 16"
+
+# Icon theme name
+icon_theme_name = "Adwaita"
+
+# GTK theme name
+theme_name = "Adwaita"
+
+# Custom CSS - the 1337hero magic
+style_path = "/etc/greetd/style.css"
+
+[commands]
+# The command used to reboot the system
+reboot = ["systemctl", "reboot"]
+
+# The command used to shut down the system
+poweroff = ["systemctl", "poweroff"]
+
+# The command prefix for X11 sessions to start the X server
+x11_prefix = [ "startx", "/usr/bin/env" ]
+
+[appearance]
+# The message that initially displays on startup
+greeting_msg = ">"
+
+
+[widget.clock]
+# strftime format argument
+# See https://docs.rs/jiff/0.1.14/jiff/fmt/strtime/index.html#conversion-specifications
+format = "%a %H:%M"
+
+# How often to update the text
+resolution = "500ms"
+
+# Override system timezone (IANA Time Zone Database name, aka /etc/zoneinfo path)
+# Remove to use the system time zone.
+timezone = "America/Chicago"
+
+# Ask GTK to make the label at least this wide. This helps keeps the parent element layout and width consistent.
+# Experiment with different widths, the interpretation of this value is entirely up to GTK.
+label_width = 150

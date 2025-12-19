@@ -1,0 +1,59 @@
+# Yeet - Default Config
+# User overrides go in ~/.config/yeet/config.toml
+
+[general]
+# Show window on specific monitor (0 = primary)
+monitor = 0
+
+# Max results to show when searching
+max_results = 8
+
+# Results to show before typing (0 = just search bar, or show favorites)
+initial_results = 8
+
+# Terminal emulator for running terminal apps
+terminal = "alacritty"
+
+[appearance]
+# Window width (height auto-sizes to content)
+width = 500
+
+# Window anchors from screen edge (pixels)
+anchor_top = 200
+
+[search]
+# Minimum score for fuzzy match (0-100)
+min_score = 30
+
+# Prioritize exact prefix matches
+prefer_prefix = true
+
+[apps]
+# Directories to scan for .desktop files (in addition to XDG defaults)
+extra_dirs = []
+
+# Apps to exclude by desktop entry name (e.g., "htop.desktop")
+exclude = ["Avahi SSH Server Browser", "Avahi VNC Server Browser", "Avahi Zeroconf Browser"]
+
+# Apps to always show at top
+favorites = ["Alacritty", "Visual Studio Code", "Firefox"]
+
+# Custom app entries
+# [[apps.custom]]
+# name = "My App"
+# exec = "/path/to/app"
+# icon = "app-icon"  # optional, from icon theme
+# keywords = ["alias", "another"]  # optional, extra search terms
+
+[[apps.custom]]
+name = "Chrome - Personal"
+exec = "thorium-browser --profile-directory=Default"
+icon = "thorium-browser"
+keywords = ["browser", "personal", "chrome"]
+
+[[apps.custom]]
+name = "Chrome - Work"
+exec = "thorium-browser --profile-directory=\"Profile 1\""
+icon = "thorium-browser"
+keywords = ["browser", "work", "chrome"]
+

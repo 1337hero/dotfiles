@@ -1,0 +1,155 @@
+/* 1337hero - ReGreet Theme
+ * Minimalist black + white terminal aesthetic
+ * Ported from SDDM QML theme
+ */
+
+/* Main window - pure black */
+window {
+    background-color: #000000;
+}
+
+#background {
+    background-color: #000000;
+}
+
+/* Hide the greeting message for minimal look */
+#message_label {
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* Clock - subtle, not the focus */
+#clock_frame label {
+    color: #ffffff;
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+/* Password entry - the star of the show */
+#secret_entry,
+#visible_entry {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    caret-color: #00ff41; /* Matrix green cursor */
+}
+
+#secret_entry:focus,
+#visible_entry:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+/* Username entry */
+#username_entry {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 24px;
+    border: none;
+    border-bottom: 2px solid #333333;
+}
+
+#username_entry:focus {
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Session entry */
+#session_entry {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+}
+
+/* Labels */
+#input_label,
+#session_label,
+label {
+    color: #ffffff;
+}
+
+/* Error state - the red pulse from original */
+#error_info {
+    background-color: transparent;
+}
+
+#error_label {
+    color: #ff3117;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Buttons - minimal */
+button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+button:hover {
+    background-color: #1a1a1a;
+    border-color: #ffffff;
+}
+
+button:active {
+    background-color: #333333;
+}
+
+#login_button {
+    border-color: #00ff41;
+    color: #00ff41;
+}
+
+#login_button:hover {
+    background-color: #001a00;
+}
+
+/* Power buttons - subtle */
+#reboot_button,
+#poweroff_button {
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+#reboot_button:hover,
+#poweroff_button:hover {
+    opacity: 1.0;
+}
+
+/* Toggle buttons */
+#user_toggle,
+#sess_toggle {
+    background-color: transparent;
+    color: #666666;
+}
+
+#user_toggle:checked,
+#sess_toggle:checked {
+    color: #ffffff;
+}
+
+/* Dropdown/combo boxes */
+combobox,
+dropdown {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+/* Scrollbars - if any */
+scrollbar {
+    background-color: #000000;
+}
+
+scrollbar slider {
+    background-color: #333333;
+    border-radius: 4px;
+}

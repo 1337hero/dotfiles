@@ -1,0 +1,29 @@
+#1337Hero's Git Ignore!
+
+# OS files
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Misc
+._*
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+#AI Agents
+.claude
+CLAUDE.md
+GEMINI.md
+
+# Environment
+.env
+.env.local
+
+#Git Config
+git/

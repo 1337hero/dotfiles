@@ -1,0 +1,108 @@
+function alias_value() {
+  (( $+aliases[$1] )) && echo $aliases[$1]
+}
+
+function try_alias_value() {
+  alias_value "$1" || echo "$1"
+}
+
+alias c="clear"
+alias x="exit"
+alias r="source ~/.zshrc"
+alias ls="colorls"
+
+alias cd -="cd -"
+alias md='mkdir -p'
+alias rd='rmdir'
+
+alias home="cd ~/"
+
+alias edit-zsh="nvim ~/.zshrc"
+alias vim="nvim" #set default VIM to Neovim
+
+# List directory contents
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias lla="ls -la"
+alias lt="ls -lTa"
+
+# Run ls after cd
+function cd { builtin cd "$@" && colorls }
+
+# Git Aliases
+alias g="git"
+alias gs="g status"
+alias ga="g add"
+alias gaa="g add -A"
+alias gc="g commit -m"
+alias gpo="g push origin"
+alias gb="g branch"
+alias gco="g checkout"
+alias gbl="g branch --list"
+
+# TMUX Aliases
+alias tl="tmux ls"
+alias tad="tmux attach -d -t"
+alias ta="tmux attach -d"
+alias ts="tmux new-session -s"
+alias tksv="tmux kill-server"
+alias tkss="tmux kill-session -t"
+alias tmd="tmux detach"
+alias stx="tmux source ~/.tmux.conf"
+
+# Custom Directory Aliases
+alias dw="cd ~/Downloads"
+alias projects="cd ~/Projects"
+alias srwp="cd ~/Projects/SURF/SRWP"
+alias ciss="cd ~/Projects/SURF/CISS"
+alias cep="cd ~/Projects/SURF/CEP"
+alias sites="cd ~/Sites"
+alias invstorly="cd ~/Sites/invstorly.com"
+alias dotfiles="cd ~/Dotfiles"
+alias games="cd ~/Games"
+alias faster-chat="cd ~/Projects/1_React/faster-chat"
+
+# Open VS Code in the current directory or workspace
+function code() {
+    # Locate any .code-workspace file in the current directory
+    local workspace_file=$(find . -maxdepth 1 -name '*.code-workspace' | head -n 1)
+
+    # Check if a workspace file was found
+    if [[ -n "$workspace_file" ]]; then
+        echo "Workspace found: $workspace_file"
+        command code "$workspace_file"
+    else
+        echo "No workspace file found. Opening the current directory."
+        # Open the current directory in VS Code OSS
+        command code .
+    fi
+}
+
+# Misc Aliases
+alias nf="neofetch"
+alias minecraft="~/Games/minecraft-server/manage_server.sh"
+alias raidCheck="sudo mdadm --detail /dev/md127"
+
+#Plex Aliases
+alias plexStart="sudo systemctl start plexmediaserver.service"
+alias plexStop="sudo systemctl stop plexmediaserver.service"
+alias plexRestart="sudo systemctl restart plexmediaserver.service"
+alias plexStatus="sudo systemctl status plexmediaserver.service"
+
+#Workflow Stuff
+
+#Arch Shortcuts
+alias pm="sudo pacman -S"
+alias pmr="sudo pacman -Rs"
+
+#Hyprland
+alias hr="hyprctl reload"
+
+#SSH Aliases
+alias leet="ssh -i ~/.ssh/digitalocean mikekey@143.198.155.134 -p 7989"
+
+# Ollama Stuff
+alias ollamaStart="ollama serve > /dev/null 2>&1 &"
+alias ollamaStop="pkill ollama"
+alias ollamaStatus="pgrep -fl ollama || echo 'Ollama is not running'"
+alias ollamaRestart="pkill ollama; sleep 1; ollama serve > /dev/null 2>&1 &"
