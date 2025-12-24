@@ -1,0 +1,4 @@
+wlr-randr --output DP-1 --scale 1.333333
+waybar &
+hyprpaper &
+
