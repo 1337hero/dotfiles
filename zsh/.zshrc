@@ -97,3 +97,18 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib
 
 
 . "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/home/mikekey/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+
+# Import ENV
+if [ -f ~/.env ]; then
+    set -a
+    source ~/.env
+    set +a
+fi
