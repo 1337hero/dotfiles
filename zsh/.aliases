@@ -202,10 +202,10 @@ gemma4Up() {
 }
 
 gemma4Down() {
-  pkill -f "llama-server.*8083" && echo "Gemma-4 stopped" || echo "Gemma-4 not running"
+  pkill -f "llama-server.*8084" && echo "Gemma-4 stopped" || echo "Gemma-4 not running"
 }
 
-alias gemma4Status="curl -s http://127.0.0.1:8083/health 2>/dev/null && echo '' || echo 'Gemma-4 not running'"
+alias gemma4Status="curl -s http://127.0.0.1:8084/health 2>/dev/null && echo '' || echo 'Gemma-4 not running'"
 alias gemma4Log="tail -f /tmp/Gemma4-server.log"
 
 # Trinity-Mini (Vulkan llama-server)
