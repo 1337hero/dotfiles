@@ -112,3 +112,13 @@ if [ -f ~/.env ]; then
     source ~/.env
     set +a
 fi
+
+export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
+export SSH_ASKPASS_REQUIRE=prefer   # use it when no TTY; fall back to TTY otherwise
+
+# HF cache → unified ~/models layout
+export HF_HOME="$HOME/models/hf"
+export HF_HUB_CACHE="$HOME/models/hf/hub"
+
+# hipfire
+export PATH="$HOME/.hipfire/bin:$PATH"
