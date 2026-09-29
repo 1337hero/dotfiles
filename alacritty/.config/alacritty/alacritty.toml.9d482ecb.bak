@@ -1,0 +1,21 @@
+general.import = [
+  "~/.config/alacritty/catppuccin-macchiato.toml"
+]
+
+[window]
+padding = { x = 5, y = 20 }
+decorations= "Full"
+
+opacity = 0.85
+blur = false
+
+[font]
+normal = { family = "MonoLisa", style = "Light" }
+size = 14
+
+[colors]
+
+[terminal]
+osc52 = "CopyPaste"
+
+

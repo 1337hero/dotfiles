@@ -113,12 +113,39 @@ if [ -f ~/.env ]; then
     set +a
 fi
 
-export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
-export SSH_ASKPASS_REQUIRE=prefer   # use it when no TTY; fall back to TTY otherwise
-
 # HF cache → unified ~/models layout
 export HF_HOME="$HOME/models/hf"
 export HF_HUB_CACHE="$HOME/models/hf/hub"
 
 # hipfire
 export PATH="$HOME/.hipfire/bin:$PATH"
+export NODE_OPTIONS="--max-old-space-size=8192"
+
+# fnm
+FNM_PATH="/home/mikekey/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mikekey/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mikekey/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mikekey/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mikekey/google-cloud-sdk/completion.zsh.inc'; fi
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+export PATH=$PATH:$HOME/.maestro/bin
+
+# Android builds require an LTS JDK; the system default may be newer.
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Android SDK
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
