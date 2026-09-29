@@ -61,16 +61,22 @@ alias experiments="cd ~/Experiments"
 alias ideas="cd ~/Ideas"
 alias sites="cd ~/Sites"
 alias archlab="cd ~/Archlab"
-alias business="cd ~/1337hero"
+alias models="cd ~/models"
+alias agents="cd ~/Agents"
+alias tools="cd ~/Tools"
+alias 1337hero="cd ~/1337hero"
 alias clients="cd ~/1337hero/Clients"
-alias surf="cd  ~/1337hero/Clients/SURF"
+alias techguys="cd ~/1337hero/Clients/TechGuys"
+alias surf="cd ~/1337hero/Clients/SURF"
 alias srwp="cd ~/1337hero/Clients/SURF/SRWP"
 alias ciss="cd ~/1337hero/Clients/SURF/CISS"
 alias cep="cd ~/1337hero/Clients/SURF/CEP"
+alias sale-on="cd ~/1337hero/Clients/SURF/sale-on"
 alias dotfiles="cd ~/Dotfiles"
 alias games="cd ~/Games"
 alias faster-chat="cd ~/Builds/FasterChat"
 alias knitly="cd ~/Builds/Knitly"
+alias scaffold-bench="cd ~/Builds/scaffold-bench"
 
 #Hyprland
 alias hr="hyprctl reload"
@@ -89,12 +95,18 @@ alias plexStop="sudo systemctl stop plexmediaserver.service"
 alias plexRestart="sudo systemctl restart plexmediaserver.service"
 alias plexStatus="sudo systemctl status plexmediaserver.service"
 
+#Jellyfin Aliases
+alias jellyStart="sudo systemctl start jellyfin"
+alias jellyStop="sudo systemctl stop jellyfin"
+alias jellyRestart="sudo systemctl restart jellyfin"
+alias jellyStatus="sudo systemctl status jellyfin"
 # Homelab Mount (sshfs)
 homelab-mount() {
   if mountpoint -q ~/homelab-mnt; then
     fusermount -u ~/homelab-mnt && echo "Unmounted"
   else
-    sshfs mikekey@192.168.1.3:/mnt/storage ~/homelab-mnt && echo "Mounted"
+    sshfs mikekey@192.168.1.3:/mnt/storage ~/homelab-mnt \
+      -o allow_other,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 && echo "Mounted"
   fi
 }
 
@@ -127,7 +139,7 @@ alias llamaRestart="sudo systemctl restart llama-swap"
 
 
 # Scaffold Dev
-alias scaffold="cd ~/Builds/scaffold"
+alias scaffoldDir="cd ~/Builds/scaffold"  # was `scaffold`; renamed — `scaffold` is now the scaffold-code CLI
 alias scaffoldDaemon="cd ~/Builds/scaffold/daemon"
 alias scaffoldApp="cd ~/Builds/scaffold/app"
 alias scaffoldLogs="journalctl --user -u scaffold-daemon.service -f"
@@ -258,6 +270,67 @@ EOF
 
 alias ytDLv='ytDL --video'
 
+# Benchmark a llama-swap model with bench_lm.py
+# Defaults: --quant F16 --backend vulkan --max-tokens 256 --system "/no_think"
+# Add --submit to actually submit; omit for a dry run.
+benchmark() {
+  local alias_name=""
+  local hf_id=""
+  local quant="F16"
+  local backend="vulkan"
+  local max_tokens="256"
+  local system="/no_think"
+  local submit=""
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --a|--alias)
+        alias_name="$2"; shift 2 ;;
+      --hf|--hf-id)
+        hf_id="$2"; shift 2 ;;
+      --quant)
+        quant="$2"; shift 2 ;;
+      --backend)
+        backend="$2"; shift 2 ;;
+      --max-tokens)
+        max_tokens="$2"; shift 2 ;;
+      --system)
+        system="$2"; shift 2 ;;
+      --submit)
+        submit="--submit"; shift ;;
+      -h|--help)
+        cat <<'EOF'
+Usage:
+  benchmark --a <alias> --hf <hf-id> [--submit]
+  benchmark --a <alias> --hf <hf-id> [--quant F16] [--backend vulkan] \
+            [--max-tokens 256] [--system "/no_think"] [--submit]
+
+Notes:
+  Omit --submit for a dry run.
+  Defaults: --quant F16 --backend vulkan --max-tokens 256 --system "/no_think"
+EOF
+        return 0 ;;
+      *)
+        echo "benchmark: unknown option $1"; return 1 ;;
+    esac
+  done
+
+  if [[ -z "$alias_name" || -z "$hf_id" ]]; then
+    echo 'benchmark: --a <alias> and --hf <hf-id> are required'
+    echo 'Try: benchmark --a Qwen3.6-27B --hf Qwen/Qwen3.6-27B --submit'
+    return 1
+  fi
+
+  ( cd ~/models && python bench_lm.py \
+      --alias "$alias_name" \
+      --hf-id "$hf_id" \
+      --quant "$quant" \
+      --backend "$backend" \
+      --max-tokens "$max_tokens" \
+      --system "$system" \
+      ${submit:+$submit} )
+}
+
 #  ytDL --mp3 --t "Stormlight Archive Ambience - Words of Radiance" "https://www.youtube.com/watch?v=kS92aTNisCw"
 #  ytDL --mp3 "https://www.youtube.com/watch?v=kS92aTNisCw"
 #  ytDL --video "https://www.youtube.com/watch?v=kS92aTNisCw"
@@ -270,6 +343,13 @@ alias ytDLv='ytDL --video'
 
 # Open Zed in the current directory
 zed() {
+    if [[ -z "$WAYLAND_DISPLAY" && -z "$DISPLAY" ]]; then
+        echo "zed: no graphical display (WAYLAND_DISPLAY/DISPLAY unset) — refusing to spawn a headless daemon." >&2
+        return 1
+    fi
     echo "Opening the current directory in Zed."
     command zeditor .
 }
+
+# ytnote — YouTube -> timestamped transcript + claude research notes (ytn / ytnt shortcuts)
+source ~/Tools/YTNote/ytnote.zsh
