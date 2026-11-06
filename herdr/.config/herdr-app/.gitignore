@@ -1,0 +1,52 @@
+# Herdr app home (~/.config/herdr-app). Only personal config is tracked:
+# Herdr rewrites its shipped layouts, mods, frame and type files on every start,
+# and the rest is runtime state. The dotfiles repo is public, so mods are
+# whitelisted by name: add a new personal mod below to publish it.
+/*
+!/.gitignore
+!/keys.json
+!/settings.json
+!/programs.json
+
+# Themes, minus the ones Herdr ships.
+!/themes/
+/themes/atom-one-dark.json
+/themes/win98.json
+
+# Layouts, minus the ones Herdr ships and the click state.
+!/layouts/
+/layouts/.state/
+/layouts/main.json
+/layouts/terminals.json
+/layouts/win98.json
+/layouts/win98.svg
+/layouts/*.json.old-*
+/layouts/*.reset-*
+
+# Personal mods.
+!/mods/
+/mods/*
+!/mods/catppuccin-changes/
+!/mods/catppuccin-chrome/
+!/mods/catppuccin-files/
+!/mods/catppuccin-status/
+!/mods/catppuccin-tabs/
+!/mods/changes-toggle/
+!/mods/claude-chat/
+!/mods/desktop-notifications/
+!/mods/files-toggle/
+!/mods/github/
+!/mods/insights/
+!/mods/linear/
+!/mods/pi-chat/
+!/mods/recap/
+!/mods/revive/
+!/mods/spaces-archbox/
+
+# Written into every mod by Herdr.
+gpui-kit.d.ts
+herdr.d.ts
+jsconfig.json
+*.error
+node_modules/
+__pycache__/
