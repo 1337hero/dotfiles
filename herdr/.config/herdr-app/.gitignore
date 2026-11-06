@@ -26,6 +26,7 @@
 # Personal mods.
 !/mods/
 /mods/*
+!/mods/bottom-bar-stats/
 !/mods/catppuccin-changes/
 !/mods/catppuccin-chrome/
 !/mods/catppuccin-files/
