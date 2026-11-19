@@ -26,6 +26,7 @@
 # Personal mods.
 !/mods/
 /mods/*
+!/mods/arena/
 !/mods/bottom-bar-stats/
 !/mods/catppuccin-changes/
 !/mods/catppuccin-chrome/
@@ -42,6 +43,7 @@
 !/mods/pi-chat/
 !/mods/recap/
 !/mods/revive/
+!/mods/routing/
 !/mods/spaces-archbox/
 
 # Written into every mod by Herdr.

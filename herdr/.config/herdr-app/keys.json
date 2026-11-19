@@ -1,5 +1,9 @@
 {
   "global": {
+    "ctrl-left": "edge-nav.left",
+    "ctrl-right": "edge-nav.right",
+    "ctrl-up": "edge-nav.up",
+    "ctrl-down": "edge-nav.down",
     "alt-1": "space.select:1",
     "alt-2": "space.select:2",
     "alt-3": "space.select:3",
@@ -64,8 +68,13 @@
     "cmd-shift-r": "mod.open:revive",
     "ctrl-shift-g": "mod.open:github",
     "ctrl-shift-r": "mod.open:recap",
-    "ctrl-shift-i": "mod.open:linear"
+    "ctrl-shift-i": "mod.open:linear",
+    "cmd-shift-a": "mod.open:arena",
+    "cmd-e": "mod.open:herdr-nvim",
+    "cmd-o": "herdr-nvim.pick",
+    "cmd-shift-e": "herdr-nvim.reveal"
   },
+  "mod:edge-nav": {},
   "mod:github": {
     "escape": "github.escape"
   },
@@ -83,8 +92,6 @@
   },
   "terminal": {
     "ctrl-backspace": "send:\u0017",
-    "ctrl-left": "send:\u001bb",
-    "ctrl-right": "send:\u001bf",
     "ctrl-shift-c": "terminal.copy",
     "ctrl-shift-v": "terminal.paste",
     "ctrl-shift-f": "terminal.search",

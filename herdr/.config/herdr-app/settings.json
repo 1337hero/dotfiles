@@ -7,5 +7,6 @@
   "font_size": 13.7,
   "font_ligatures": false,
   "minimum_contrast": 1,
-  "ui_font": "MonoLisa"
+  "ui_font": "MonoLisa",
+  "appearance": "dark"
 }
