@@ -105,7 +105,7 @@ homelab-mount() {
   if mountpoint -q ~/homelab-mnt; then
     fusermount -u ~/homelab-mnt && echo "Unmounted"
   else
-    sshfs mikekey@192.168.1.3:/mnt/storage ~/homelab-mnt \
+    sshfs mikekey@10.10.0.20:/mnt/storage ~/homelab-mnt \
       -o allow_other,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 && echo "Mounted"
   fi
 }
