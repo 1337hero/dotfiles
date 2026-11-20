@@ -177,13 +177,6 @@
                       "content": {
                         "mod": "catppuccin-changes"
                       }
-                    },
-                    {
-                      "id": "routing",
-                      "type": "block",
-                      "content": {
-                        "mod": "routing"
-                      }
                     }
                   ],
                   "active": "files"

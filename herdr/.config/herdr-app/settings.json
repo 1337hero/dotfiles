@@ -3,10 +3,12 @@
   "sounds": {
     "enabled": true
   },
-  "font": "MonoLisa Light",
-  "font_size": 13.7,
+  "font": "FiraCode Nerd Font",
+  "font_size": 14.7,
   "font_ligatures": false,
   "minimum_contrast": 1,
-  "ui_font": "MonoLisa",
-  "appearance": "dark"
+  "ui_font": "FiraCode Nerd Font",
+  "appearance": "dark",
+  "font_weight": 200,
+  "terminal_line_height": 1.2
 }
